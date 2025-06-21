@@ -6,7 +6,7 @@ CXXFLAGS = -std=c++23 -Iinclude -I/opt/homebrew/opt/sfml/include
 LDFLAGS = -L/opt/homebrew/opt/sfml/lib -lsfml-graphics -lsfml-window -lsfml-system -Wl,-rpath,/opt/homebrew/opt/sfml/lib
 
 # Source files and output binary
-SRC = src/main.cpp src/game.cpp 
+SRC = src/main.cpp src/game.cpp src/board.cpp
 TARGET = bin/main
 
 # Default rule to build executable
