@@ -1,4 +1,5 @@
 #include "board.h"
+#include "mark.h"
 
 #include <SFML/Graphics/CircleShape.hpp>
 
@@ -28,35 +29,19 @@ void Board::draw(sf::RenderWindow& window) {
     // Draw X/O for each cell
     for (int row = 0; row < 3; ++row) {
         for (int col = 0; col < 3; ++col) {
-            float x = position.x + col * cellSize;
-            float y = position.y + row * cellSize;
+            float x = position.x + col * cellSize + cellSize / 2.f;
+            float y = position.y + row * cellSize + cellSize / 2.f;
 
             if (board[row][col] == 1) {
-                // Draw X (two crossing lines)
-                sf::RectangleShape line1(sf::Vector2f(cellSize * 0.8f, 5.f));
-                line1.setPosition(sf::Vector2f(x + cellSize * 0.1f, y + cellSize * 0.1f));
-                line1.setRotation(sf::degrees(45.f));
-                line1.setFillColor(sf::Color::Red);
-
-                sf::RectangleShape line2(sf::Vector2f(cellSize * 0.8f, 5.f));
-                line2.setPosition(sf::Vector2f(x + cellSize * 0.1f, y + cellSize * 0.9f));
-                line2.setRotation(sf::degrees(-45.f));
-                line2.setFillColor(sf::Color::Red);
-
-                window.draw(line1);
-                window.draw(line2);
-            } 
-            else if (board[row][col] == 2) {
-                // Draw O (circle)
-                sf::CircleShape circle(cellSize * 0.35f);
-                circle.setPosition(sf::Vector2f(x + cellSize * 0.15f, y + cellSize * 0.15f));
-                circle.setFillColor(sf::Color::Transparent);
-                circle.setOutlineColor(sf::Color::Blue);
-                circle.setOutlineThickness(5.f);
-
-                window.draw(circle);
+                XMark xMark(cellSize);
+                xMark.setPosition({x, y});
+                xMark.draw(window);
             }
-            // else do nothing for empty cell (0)
+            else if (board[row][col] == 2) {
+                OMark oMark(cellSize);
+                oMark.setPosition({x, y});
+                oMark.draw(window);
+            }
         }
     }
 }

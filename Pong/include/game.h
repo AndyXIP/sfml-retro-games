@@ -7,19 +7,19 @@
 #include "ball.h"
 
 class Game {
-private:
-    sf::RenderWindow window;
-    Paddle player1;
-    Paddle player2;
-    Ball ball;
+    private:
+        sf::RenderWindow window;
+        Paddle player1;
+        Paddle player2;
+        Ball ball;
 
-    void processEvents();
-    void update();
-    void render();
-    
-public:
-    Game();
-    void run();
+        void processEvents();
+        void update();
+        void render();
+        
+    public:
+        Game();
+        void run();
 };
 
 #endif

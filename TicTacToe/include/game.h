@@ -14,7 +14,6 @@ class Game {
         bool gameOver;
 
         void processEvents();
-        void update();
         void render();
         
         void handleClick(int x, int y);

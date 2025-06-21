@@ -1,15 +1,14 @@
 #include "game.h"
 
 Game::Game()
-    : window(sf::VideoMode({600, 600}), "TicTacToe"),  // Use braced init for sf::VideoMode
-      board(180.f, {60.f, 60.f}),                      // cellSize=180, position offset for grid
+    : window(sf::VideoMode({600, 600}), "TicTacToe"),
+      board(180.f, {60.f, 60.f}),
       currentPlayer(1), gameOver(false)
 {}
 
 void Game::run() {
     while (window.isOpen()) {
         processEvents();
-        update();
         render();
     }
 }
@@ -36,10 +35,6 @@ void Game::processEvents() {
     }
 }
 
-void Game::update() {
-    // You can add game update logic here if needed later
-}
-
 void Game::handleClick(int x, int y) {
     // Convert mouse coords to board cell
     int col = (x - static_cast<int>(board.getPosition().x)) / static_cast<int>(board.getCellSize());
@@ -56,14 +51,12 @@ void Game::handleClick(int x, int y) {
             gameOver = true;
             // TODO: add draw message or logic
         } else {
-            // Switch player
             currentPlayer = (currentPlayer == 1) ? 2 : 1;
         }
     }
 }
 
 bool Game::checkWin(int player) {
-    // Check rows, cols, diagonals for 3 in a row
     for (int i = 0; i < 3; ++i) {
         if (board.getCell(i, 0) == player && board.getCell(i, 1) == player && board.getCell(i, 2) == player)
             return true;
