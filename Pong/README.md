@@ -8,7 +8,6 @@ This Pong game features:
 
 - Two paddles controlled by players.
 - A bouncing ball with basic physics.
-- Score tracking (optional to implement).
 - Simple and responsive controls.
 
 ## Dependencies
