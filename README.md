@@ -4,6 +4,7 @@ A collection of classic retro-style games developed in C++ using the SFML librar
 ## Games Included
 
 - **Pong**: Classic 2-player paddle game.
+- **Snake**: Classic snake game with food collection and growth mechanics.
 - **Tic Tac Toe**: Simple X/O board game.
 
 ## How to Build and Run
