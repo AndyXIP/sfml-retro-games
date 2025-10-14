@@ -55,6 +55,8 @@ void Game::processEvents() {
                     case sf::Keyboard::Scancode::Right:
                         playerSnake.setDirection(Direction::RIGHT);
                         break;
+                    default:
+                        break;
                 }
             }
             else if (keyPressed->scancode == sf::Keyboard::Scancode::R) {

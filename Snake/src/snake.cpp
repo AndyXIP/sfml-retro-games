@@ -35,6 +35,8 @@ void Snake::move() {
         case Direction::RIGHT:
             newHead.x++;
             break;
+        default:
+            break;
     }
     
     // Add new head
