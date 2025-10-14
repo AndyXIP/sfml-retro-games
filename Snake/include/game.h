@@ -25,9 +25,7 @@ class Game {
         
         int score;
         bool gameOver;
-        bool fontLoaded;
         sf::Clock gameClock;
-        sf::Font font;
         
         static constexpr int CELL_SIZE = 20;
         static constexpr int BOARD_WIDTH = 30;

@@ -2,23 +2,14 @@
 #include <iostream>
 
 Game::Game()
-    : window(sf::VideoMode({BOARD_WIDTH * CELL_SIZE, BOARD_HEIGHT * CELL_SIZE + 50}), "Snake"),
+    : window(sf::VideoMode({BOARD_WIDTH * CELL_SIZE, BOARD_HEIGHT * CELL_SIZE}), "Snake"),
       playerSnake(BOARD_WIDTH / 2, BOARD_HEIGHT / 2, CELL_SIZE),
       gameBoard(BOARD_WIDTH, BOARD_HEIGHT, CELL_SIZE),
       gameFood(BOARD_WIDTH, BOARD_HEIGHT, CELL_SIZE),
       score(0),
-      gameOver(false),
-      fontLoaded(false)
+      gameOver(false)
 {
     window.setFramerateLimit(60);
-    
-    // Try to load font (optional - game will work without it)
-    if (font.openFromFile("/System/Library/Fonts/Arial.ttf")) {
-        fontLoaded = true;
-    } else {
-        std::cout << "Warning: Could not load font. Score will not be displayed." << std::endl;
-    }
-    
     spawnFood();
 }
 
@@ -84,22 +75,6 @@ void Game::render() {
     gameBoard.draw(window);
     playerSnake.draw(window);
     gameFood.draw(window);
-    
-    // Draw score
-    if (fontLoaded) {
-        sf::Text scoreText(font, "Score: " + std::to_string(score), 24);
-        scoreText.setFillColor(sf::Color::White);
-        scoreText.setPosition({10, BOARD_HEIGHT * CELL_SIZE + 10});
-        window.draw(scoreText);
-    }
-    
-    // Draw game over message
-    if (gameOver && fontLoaded) {
-        sf::Text gameOverText(font, "Game Over! Press R to restart", 36);
-        gameOverText.setFillColor(sf::Color::Red);
-        gameOverText.setPosition({50, BOARD_HEIGHT * CELL_SIZE / 2});
-        window.draw(gameOverText);
-    }
     
     window.display();
 }

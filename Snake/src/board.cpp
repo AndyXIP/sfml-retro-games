@@ -16,9 +16,9 @@ Board::Board(int boardWidth, int boardHeight, int size)
 void Board::draw(sf::RenderWindow& window) {
     window.draw(border);
     
-    // Draw grid lines (optional - makes the grid visible)
+    // Grid lines (optional)
     sf::RectangleShape gridLine;
-    gridLine.setFillColor(sf::Color(50, 50, 50)); // Dark gray
+    gridLine.setFillColor(sf::Color(50, 50, 50));
     
     // Vertical lines
     gridLine.setSize(sf::Vector2f(1, static_cast<float>(height * cellSize)));

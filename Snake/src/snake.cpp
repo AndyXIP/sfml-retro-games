@@ -57,7 +57,6 @@ void Snake::setDirection(Direction newDirection) {
 }
 
 void Snake::grow() {
-    // Add a segment at the tail
     sf::Vector2i tail = body.back();
     body.push_back(tail);
 }
@@ -84,7 +83,6 @@ sf::Vector2i Snake::getHeadPosition() const {
 bool Snake::checkSelfCollision() const {
     const sf::Vector2i& head = body.front();
     
-    // Check if head collides with any body segment (skip head itself)
     for (size_t i = 1; i < body.size(); ++i) {
         if (head == body[i]) {
             return true;
@@ -97,7 +95,6 @@ bool Snake::checkSelfCollision() const {
 void Snake::reset(int startX, int startY) {
     body.clear();
     
-    // Reset to initial state
     body.push_back({startX, startY});
     body.push_back({startX - 1, startY});
     body.push_back({startX - 2, startY});
