@@ -4,7 +4,9 @@ Game::Game()
     : window(sf::VideoMode({600, 600}), "TicTacToe"),
       board(180.f, {60.f, 60.f}),
       currentPlayer(1), gameOver(false)
-{}
+    {
+        window.setFramerateLimit(60);
+    }
 
 void Game::run() {
     while (window.isOpen()) {
