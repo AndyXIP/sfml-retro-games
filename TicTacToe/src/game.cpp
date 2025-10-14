@@ -24,6 +24,9 @@ void Game::processEvents() {
             if (keyPressed->scancode == sf::Keyboard::Scancode::Escape) {
                 window.close();
             }
+            else if (keyPressed->scancode == sf::Keyboard::Scancode::R) {
+                reset();
+            }
         }
         else if (auto mousePressed = event.getIf<sf::Event::MouseButtonPressed>()) {
             if (!gameOver && mousePressed->button == sf::Mouse::Button::Left) {
@@ -33,6 +36,19 @@ void Game::processEvents() {
             }
         }
     }
+}
+
+void Game::reset() {
+    // Clear the board
+    for (int r = 0; r < 3; ++r) {
+        for (int c = 0; c < 3; ++c) {
+            board.setCell(r, c, 0);
+        }
+    }
+
+    // Reset state
+    currentPlayer = 1;
+    gameOver = false;
 }
 
 void Game::handleClick(int x, int y) {

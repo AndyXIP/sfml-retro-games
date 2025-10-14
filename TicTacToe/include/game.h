@@ -62,6 +62,11 @@ class Game {
          * @brief Runs the main game loop.
          */
         void run();
+
+        /**
+         * @brief Resets the game state (clear board, reset player and flags).
+         */
+        void reset();
 };
 
 #endif

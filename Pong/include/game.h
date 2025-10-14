@@ -45,6 +45,11 @@ class Game {
          * @brief Runs the main game loop.
          */
         void run();
+
+        /**
+         * @brief Resets the game state (paddles and ball positions/velocity).
+         */
+        void reset();
 };
 
 #endif

@@ -30,6 +30,9 @@ void Game::processEvents() {
             if (keyPressed->scancode == sf::Keyboard::Scancode::Escape) {
                 window.close();
             }
+            else if (keyPressed->scancode == sf::Keyboard::Scancode::R) {
+                reset();
+            }
         }
     }
 
@@ -76,4 +79,13 @@ void Game::render() {
     player2.draw(window);
     ball.draw(window);
     window.display();
+}
+
+void Game::reset() {
+    // Center paddles vertically at their original X positions
+    player1.setPosition(50.f, 250.f);
+    player2.setPosition(740.f, 250.f);
+
+    // Reset ball to center and default velocity
+    ball.reset();
 }
