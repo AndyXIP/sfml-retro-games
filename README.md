@@ -1,6 +1,6 @@
 # SFML Retro Games Collection
 
-![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+![Status](https://img.shields.io/badge/Status-Complete-success)
 ![C++](https://img.shields.io/badge/C%2B%2B-23-00599C?logo=cplusplus&logoColor=white)
 ![SFML](https://img.shields.io/badge/SFML-3.x-8CC445?logo=sfml&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux-lightgrey)
